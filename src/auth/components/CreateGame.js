@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import Layout from '../shared/Layout'
-import GameForm from '../shared/MovieForm'
+import GameForm from './GameForm'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
-class GameCreate extends Component {
+class CreateGame extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -14,7 +13,7 @@ class GameCreate extends Component {
         company: '',
         year: ''
       },
-      newMovieId: null
+      newGameId: null
     }
   }
 
@@ -28,11 +27,11 @@ handleChange = event => {
   const editedGame = Object.assign(this.state.game, updatedField)
 
   // finally setState with updates object
-  this.setState({ movie: editedGame })
+  this.setState({ game: editedGame })
 }
 handleSubmit = event => {
   event.preventDefault()
-  axios.post(`${apiUrl}/game`, {
+  axios.post(`${apiUrl}/games`, {
     game: this.state.game
 
   })
@@ -45,20 +44,20 @@ render () {
   const { handleChange, handleSubmit } = this
   const { game, newGameId } = this.state
   if (newGameId) {
-    return <Redirect to={`/game/${newGameId}`}/>
+    return <Redirect to={`/games/${newGameId}`}/>
   }
   return (
-    <Layout>
+    <div>
       <h4> Create a new game</h4>
       <GameForm
-        movie={game}
+        game={game}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         cancelPath="/"
       />
-    </Layout>
+    </div>
   )
 }
 }
 
-export default GameCreate
+export default CreateGame

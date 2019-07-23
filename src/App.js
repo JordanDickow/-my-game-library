@@ -9,6 +9,9 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
+import Games from './auth/components/Games'
+import CreateGame from './auth/components/CreateGame'
+
 import Alert from 'react-bootstrap/Alert'
 
 class App extends Component {
@@ -55,6 +58,8 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
+          <Route exact path='/games' component={Games}/>
+          <Route exact path='/create-games' component={CreateGame}/>
         </main>
       </React.Fragment>
     )

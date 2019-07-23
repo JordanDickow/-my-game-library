@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { Link } from 'react-router-dom'
-import Layout from '../shared/Layout'
 
 class Games extends Component {
   constructor (props) {
@@ -29,8 +28,8 @@ class Games extends Component {
     }
   }
   render () {
-    const { game, error, loaded } = this.state
-    const gamesList = game.map(movie => (
+    const { games, error, loaded } = this.state
+    const gamesList = games.map(game => (
       <li key={game.id}>
         <Link to={`/games/${game.id}`}>{game.title}</Link>
       </li>
@@ -43,12 +42,12 @@ class Games extends Component {
       return <p>Error: {error}</p>
     }
     return (
-      <Layout>
+      <div>
         <h4>Your Games</h4>
         <ul>
           {gamesList}
         </ul>
-      </Layout>
+      </div>
     )
   }
 }
