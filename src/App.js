@@ -11,6 +11,8 @@ import ChangePassword from './auth/components/ChangePassword'
 
 import Games from './auth/components/Games'
 import CreateGame from './auth/components/CreateGame'
+import Game from './auth/components/Game'
+import GameEdit from './auth/components/GameEdit'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -59,7 +61,15 @@ class App extends Component {
             <ChangePassword alert={this.alert} user={user} />
           )} />
           <Route exact path='/games' component={Games}/>
-          <Route exact path='/create-games' component={CreateGame}/>
+          <AuthenticatedRoute user={user} path='/create-games' render={() => (
+            <CreateGame alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/games/:id/edit' render={() => (
+            <GameEdit alert={this.alert} user={user} />
+          )} />
+          <Route exact path='/games/:id' render={() => (
+            <Game user={user}/>
+          )}/>
         </main>
       </React.Fragment>
     )

@@ -11,7 +11,7 @@ class CreateGame extends Component {
       game: {
         title: '',
         company: '',
-        year: ''
+        year_released: ''
       },
       newGameId: null
     }
@@ -31,9 +31,13 @@ handleChange = event => {
 }
 handleSubmit = event => {
   event.preventDefault()
-  axios.post(`${apiUrl}/games`, {
-    game: this.state.game
-
+  axios({
+    url: apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      'Authorization': `Token token=${this.props.user.token}`
+    },
+    data: { game: this.state.game }
   })
     .then(res => this.setState({ newGameId:
   res.data.game.id

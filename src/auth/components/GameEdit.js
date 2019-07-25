@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import Layout from '../shared/Layout'
-import GameForm from '../shared/MovieForm'
+import GameForm from './GameForm'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 
 class GameEdit extends Component {
   // intiliaze constructor, state
@@ -13,31 +12,35 @@ class GameEdit extends Component {
       game: {
         title: '',
         company: '',
-        year: ''
+        year_released: ''
 
       },
       updated: false
     }
   }
-
   componentDidMount () {
-    axios(`${apiUrl}/movies/${this.props.match.params.id}`)
+    event.preventDefault()
+    axios(`${apiUrl}/games/${this.props.match.params.id}`)
       .then(res => this.setState({ game: res.data.game }))
       .catch(console.error)
   }
+
   handleSubmit = event => {
-    event.prevent.Default()
-    axios.patch(`${apiUrl}/movies/${apiUrl}/movies/${this.props.match.params.id}`,
-      {
-        movie: this.state.game
-      })
+    event.preventDefault()
+    axios({
+      url: apiUrl + `/games/${this.props.match.params.id}`,
+      method: 'PATCH',
+      headers: {
+        Authorization: 'Token token=' + this.props.user.token
+      },
+      data: { game: this.state.game }
+    })
       .then(res => this.setState({
-        movie: res.data.game,
-        edited: true
+        game: res.data.game,
+        updated: true
       }))
       .catch(console.error)
   }
-
   handleChange = event => {
     const updatedField = {
       [event.target.name]: event.target.value
@@ -45,12 +48,11 @@ class GameEdit extends Component {
     const updatedGame = Object.assign(this.state.game, updatedField)
     this.setState({ game: updatedGame })
   }
-
   render () {
-    const { game, edited } = this.state
+    const { game, updated } = this.state
     const { handleChange, handleSubmit } = this
 
-    if (edited) {
+    if (updated) {
       return <Redirect to={
         {
           pathname: `/games/${this.props.match.params.id}`,
@@ -61,16 +63,16 @@ class GameEdit extends Component {
       }/>
     }
     return (
-      <Layout>
+      <div>
         <h3>Edit your game</h3>
         <GameForm
-          movie={game}
+          game={game}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           cancelPath={`/games/${this.props.match.params.id}`}
         />
-      </Layout>
+      </div>
     )
   }
 }
-export default GameEdit
+export default withRouter(GameEdit)
