@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import GameForm from './GameForm'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
+import messages2 from '../messages2'
 
 class CreateGame extends Component {
   constructor (props) {
@@ -40,8 +41,8 @@ handleSubmit = event => {
     data: { game: this.state.game }
   })
     .then(res => this.setState({ newGameId:
-  res.data.game.id
-    }))
+  res.data.game.id }))
+    .then(this.props.alert(messages2.createGameSuccess, 'success'))
     .catch(console.error)
 }
 render () {

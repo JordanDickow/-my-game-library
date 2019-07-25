@@ -14,8 +14,12 @@ class Game extends Component {
   }
 
   componentDidMount () {
-    // index request!!
-    axios(`${apiUrl}/games/${this.props.match.params.id}`)
+    // show request!!
+    axios({
+      url: `${apiUrl}/games/${this.props.match.params.id}`,
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}` }
+    })
       .then(res => this.setState({ game: res.data.game }))
       .catch(err => this.setState({ error: err.stack }))
   }

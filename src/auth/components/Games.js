@@ -20,7 +20,13 @@ class Games extends Component {
     //   .then(res => this.setState({ movies: res.data.movies, loaded: true }))
     //   .catch(err => this.setState({ error: err.message }))
     try {
-      const response = await axios(`${apiUrl}/games`)
+      const response = await axios({
+        url: `${apiUrl}/games`,
+        headers: {
+          'Authorization': `Token token=${this.props.user.token}`
+        }
+      })
+
       this.setState({ games: response.data.games, loaded: true })
     } catch (err) {
       console.error(err)
