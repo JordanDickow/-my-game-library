@@ -28,9 +28,9 @@ class Games extends Component {
       })
 
       this.setState({ games: response.data.games, loaded: true })
-    } catch (err) {
-      console.error(err)
-      this.setState({ error: err.message })
+    } catch (error) {
+      console.error(error)
+      this.setState({ error: error.message })
     }
   }
   render () {
