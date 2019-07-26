@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { Link, Redirect, withRouter } from 'react-router-dom'
+import messages2 from '../messages2'
 
 class Game extends Component {
   constructor (props) {
@@ -29,8 +30,10 @@ class Game extends Component {
      url: `${apiUrl}/games/${this.props.match.params.id}`,
      headers: {
        'Authorization': `Token token=${this.props.user.token}` },
-     method: 'DELETE' })
+     method: 'DELETE'
+   })
      .then(() => this.setState({ deleted: true }))
+     .then(this.props.alert(messages2.deleteGameSuccess, 'success'))
      .catch(err => this.setState({ error: err.message }))
  }
 

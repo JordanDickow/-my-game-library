@@ -70,7 +70,7 @@ class App extends Component {
             <GameEdit alert={this.alert} user={user} />
           )} />
           <Route exact path='/games/:id' render={() => (
-            <Game user={user}/>
+            <Game alert={this.alert} user={user}/>
           )}/>
         </main>
       </React.Fragment>

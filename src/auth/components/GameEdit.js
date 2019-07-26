@@ -3,6 +3,7 @@ import GameForm from './GameForm'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { Redirect, withRouter } from 'react-router-dom'
+import messages2 from '../messages2'
 
 class GameEdit extends Component {
   // intiliaze constructor, state
@@ -39,6 +40,7 @@ class GameEdit extends Component {
         game: res.data.game,
         updated: true
       }))
+      .then(this.props.alert(messages2.updateGameSuccess, 'success'))
       .catch(console.error)
   }
   handleChange = event => {
