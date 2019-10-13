@@ -1,15 +1,19 @@
-# -my-game-library
- User Stories
+<h1>My Game Library</h1>
 
- As a user I want to be able to create a game
- As a user I want to be able to get all my games
- As a user I want to be able to update all my game
- As a user I want to be able to delete all my games
+<h1>About this Application</h1>
 
-You can use this app by insalling 'npm install' for react and 'bundle install' for Ruby.  
+<p>I decided to folow my interests of video games to build my final project, My Game Library. This C.R.U.D application allows users to create and store their games in a game library. Users can retrieve all their games they have created  and are able to select  one game from the library to either update it's information, or delete the game from the library entirely.</p>
 
- I used React as my front end frame work. I added different components to meet all CRUD expectations and messaging to give feedback to the user after making an action.
+<h1> Set Up</h1>
+<p> Clone this repository</p>
+<p> Run 'npm install' to install all dependencies</p>
+<p> Run 'npm run' to start the client</p>
+<p>Enjoy!</p>
 
- I had a tough time remembering authorization when switching my databases from a private read database to open read. Open read you're able to see other users entries but not edit them, private read you're only able to see your own entires.
+<h1>Technologies Used</h1>
 
- Also the deployed application has server errors even though the development app works fine.
+<p>I used React.js as the front end frame work to build the client. I really enjoyed how smooth React was updating the virtual DOM. For the backend I used Express.js. As I was learning all these technologies at General Assembly, I leaned towards Ruby on Rails at first, but after using Express, I really enjoyed being able to hard code my changes without having to keep rolling back if I made a mistake.</p>
+
+<h1>Future Iterations</h1>
+
+<p>I envision the final product of this application to be a PS4 library clone. In the library itself it has a carousel effect. My plan for this project was to meet MVP so now that I can go back and improve it I want to use Material UI and work towards making it look more like a library.</p>
