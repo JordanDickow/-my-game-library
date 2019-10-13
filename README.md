@@ -12,7 +12,7 @@
 
 <h1>Technologies Used</h1>
 
-<p>I used React.js as the front end frame work to build the client. I really enjoyed how smooth React was updating the virtual DOM. For the backend I used Ruby on Rails.  Since learning about backend technologies, I've always liked Ruby on Rails feature to generate the files required to build out the API. I have since moved on to using Express for it's flexibility to hard code changes in the server with out needing to roll back.</p>
+<p>I used React.js as the front end frame work to build the client. I really enjoyed how smooth React was updating the virtual DOM. For the backend I used Ruby on Rails.  Since learning about backend technologies, I've always liked Ruby on Rails feature to generate the files required to build out the API. I have since moved on to using Express for it's flexibility to hard code changes in the server without needing to roll back.</p>
 
 <h1>Future Iterations</h1>
 
