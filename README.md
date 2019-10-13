@@ -2,7 +2,7 @@
 
 <h1>About this Application</h1>
 
-<p>I decided to follow my interests of video games to build my final project, My Game Library. This C.R.U.D application allows users to create and store their games in a game library. Users can retrieve all their games they have created  and are able to select  one game from the library to either update it's information, or delete the game from the library entirely.</p>
+<p>I decided to follow my interests of video games to build my final project, My Game Library. This C.R.U.D. application allows users to create and store their games in a game library. Users can retrieve all their games they have created  and are able to select  one game from the library to either update it's information, or delete the game from the library entirely.</p>
 
 <h1> Set Up</h1>
 <p> Clone this repository</p>
